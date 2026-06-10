@@ -18,7 +18,6 @@ function useNotification(duracion = 3000) {
         cerrar();
       }, duracion);
 
-      // Limpieza: cancelar timeout si cambia la notificación
       return () => clearTimeout(timeout);
     }
   }, [notificacion, duracion, cerrar]);

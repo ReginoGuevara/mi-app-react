@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
 function useLocalStorage(clave, valorInicial) {
-  // Leer valor inicial de forma lazy (solo al montar)
   const [valor, setValor] = useState(() => {
     try {
       const guardado = localStorage.getItem(clave);
@@ -14,7 +13,6 @@ function useLocalStorage(clave, valorInicial) {
     return valorInicial;
   });
 
-  // Guardar en localStorage cada vez que cambia el valor
   useEffect(() => {
     try {
       localStorage.setItem(clave, JSON.stringify(valor));
